@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3BF6F895-073E-47BB-80B0-E3C4A7EF42AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SyncroSim.CaribouEnergyProtein</RootNamespace>
+    <AssemblyName>SyncroSim.CaribouEnergyProtein</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataFeedViews\ActivityBudgetDataFeedView.Designer.vb">
+      <DependentUpon>ActivityBudgetDataFeedView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DataFeedViews\ActivityBudgetDataFeedView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Assembly.vb" />
+    <Compile Include="Transformer\CAREPTransformer.Input.vb" />
+    <Compile Include="Transformer\CAREPTransformer.ModelVariables.vb" />
+    <Compile Include="Transformer\CAREPTransformer.Normalize.vb" />
+    <Compile Include="Transformer\CAREPTransformer.Output.vb" />
+    <Compile Include="Transformer\CAREPTransformer.vb" />
+    <Compile Include="CAREPUpdates.vb" />
+    <Compile Include="Shared\Constants.vb" />
+    <Compile Include="Shared\DayTimeUtils.vb" />
+    <Compile Include="Shared\Enums.vb" />
+    <Compile Include="Shared\Exceptions.vb" />
+    <Compile Include="Shared\FormsUtilities.vb" />
+    <Compile Include="Shared\IDTranslator.vb" />
+    <Compile Include="ModelVariables\MBObject.vb" />
+    <Compile Include="ModelVariables\MBOutputTable.vb" />
+    <Compile Include="ModelVariables\MBVariableDimension.vb" />
+    <Compile Include="ModelVariables\MinCalfWeightReport.vb" />
+    <Compile Include="ModelVariables\ModelUtilities.vb" />
+    <Compile Include="ModelVariables\ModelVariable.vb" />
+    <Compile Include="ModelVariables\ModelVariable0.vb" />
+    <Compile Include="ModelVariables\ModelVariable1.vb" />
+    <Compile Include="ModelVariables\ModelVariable2.vb" />
+    <Compile Include="ModelVariables\ModelVariable3.vb" />
+    <Compile Include="ModelVariables\ModelVariable4.vb" />
+    <Compile Include="ModelVariables\MVHour.vb" />
+    <Compile Include="ModelVariables\MVPlant.vb" />
+    <Compile Include="ModelVariables\MVPlantHour.vb" />
+    <Compile Include="ModelVariables\MVPlantTime.vb" />
+    <Compile Include="ModelVariables\MVSingleValueOfDouble.vb" />
+    <Compile Include="ModelVariables\MVSingleValueOfInteger.vb" />
+    <Compile Include="ModelVariables\MVStage.vb" />
+    <Compile Include="ModelVariables\MVStageTime.vb" />
+    <Compile Include="ModelVariables\MVStratumLactTime.vb" />
+    <Compile Include="ModelVariables\MVStratumPlant.vb" />
+    <Compile Include="ModelVariables\MVStratumPlantTime.vb" />
+    <Compile Include="ModelVariables\MVStratumTime.vb" />
+    <Compile Include="ModelVariables\MVStratum_ID_Time.vb" />
+    <Compile Include="ModelVariables\MVTime.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="DataSheets\OutPlantHourDataSheet.vb" />
+    <Compile Include="DataSheets\OutPlantTimestepDataSheet.vb" />
+    <Compile Include="DataSheets\OutPlantWithinTimestepDataSheet.vb" />
+    <Compile Include="DataSheets\OutStratumLactTimestepDataSheet.vb" />
+    <Compile Include="DataSheets\OutStratumPlantTimestepDataSheet.vb" />
+    <Compile Include="DataSheets\OutStratumTimestepDataSheet.vb" />
+    <Compile Include="Shared\ReportUtilities.vb" />
+    <Compile Include="DataFeedViews\RunControlDataFeedView.Designer.vb">
+      <DependentUpon>RunControlDataFeedView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DataFeedViews\RunControlDataFeedView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shared\StratumMultiKeyHelper.vb" />
+    <Compile Include="Shared\Strings.vb" />
+    <Compile Include="Shared\ValidationTables.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataFeedViews\ActivityBudgetDataFeedView.resx">
+      <DependentUpon>ActivityBudgetDataFeedView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataFeedViews\RunControlDataFeedView.resx">
+      <DependentUpon>RunControlDataFeedView.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="module.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="carep.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CoreForms\SyncroSim.Core.Forms.csproj">
+      <Project>{ea3a4b6e-d4db-466d-b510-6a38918f2dd8}</Project>
+      <Name>SyncroSim.Core.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\SyncroSim.Core.csproj">
+      <Project>{af51a2a0-349a-4a3c-bec2-906e605db6d7}</Project>
+      <Name>SyncroSim.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StochasticTime\SyncroSim.StochasticTime.csproj">
+      <Project>{ac26a679-5fb6-4cae-9b08-e0ea8027c628}</Project>
+      <Name>SyncroSim.StochasticTime</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
