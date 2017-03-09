@@ -5,7 +5,7 @@
 '
 '************************************************************************************
 
-Module Exceptions
+Module Assignment
 
     Public Sub ValidateAssignment(ByVal value As Double)
 

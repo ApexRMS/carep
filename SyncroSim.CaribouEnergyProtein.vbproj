@@ -104,6 +104,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Assembly.vb" />
+    <Compile Include="Shared\Assignment.vb" />
     <Compile Include="Transformer\CAREPTransformer.Input.vb" />
     <Compile Include="Transformer\CAREPTransformer.ModelVariables.vb" />
     <Compile Include="Transformer\CAREPTransformer.Normalize.vb" />
@@ -113,7 +114,6 @@
     <Compile Include="Shared\Constants.vb" />
     <Compile Include="Shared\DayTimeUtils.vb" />
     <Compile Include="Shared\Enums.vb" />
-    <Compile Include="Shared\Exceptions.vb" />
     <Compile Include="Shared\FormsUtilities.vb" />
     <Compile Include="Shared\IDTranslator.vb" />
     <Compile Include="ModelVariables\MBObject.vb" />
