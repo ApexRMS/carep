@@ -119,7 +119,7 @@
     <Compile Include="ModelVariables\MBObject.vb" />
     <Compile Include="ModelVariables\MBOutputTable.vb" />
     <Compile Include="ModelVariables\MBVariableDimension.vb" />
-    <Compile Include="ModelVariables\MinCalfWeightReport.vb" />
+    <Compile Include="Reports\MinCalfWeightReport.vb" />
     <Compile Include="ModelVariables\ModelUtilities.vb" />
     <Compile Include="ModelVariables\ModelVariable.vb" />
     <Compile Include="ModelVariables\ModelVariable0.vb" />
