@@ -6,10 +6,10 @@
 '************************************************************************************
 
 Imports System.Math
-Imports SyncroSim.Core
-Imports System.Globalization
+Imports System.Reflection
 Imports SyncroSim.StochasticTime
 
+<ObfuscationAttribute(Exclude:=True, ApplyToMembers:=False)>
 Class CAREPTransformer
     Inherits StochasticTimeTransformer
 

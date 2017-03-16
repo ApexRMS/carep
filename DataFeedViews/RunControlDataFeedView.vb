@@ -6,8 +6,9 @@
 '************************************************************************************
 
 Imports SyncroSim.Core
-Imports System.Windows.Forms
+Imports System.Reflection
 
+<ObfuscationAttribute(Exclude:=True, ApplyToMembers:=False)>
 Class RunControlDataFeedView
 
     Public Overrides Sub LoadDataFeed(dataFeed As DataFeed)

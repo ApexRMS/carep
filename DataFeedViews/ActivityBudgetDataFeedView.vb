@@ -5,6 +5,7 @@
 '
 '************************************************************************************
 
+Imports System.Reflection
 Imports SyncroSim.Core
 Imports SyncroSim.Core.Forms
 
@@ -15,6 +16,7 @@ Imports SyncroSim.Core.Forms
 ''' This view contains two nested default views, a single row view for the Proportion Eating Multiplier and
 ''' a multi-row view for the Activity Budget.
 ''' </remarks>
+<ObfuscationAttribute(Exclude:=True, ApplyToMembers:=False)>
 Class ActivityBudgetDataFeedView
 
     ''' <summary>
