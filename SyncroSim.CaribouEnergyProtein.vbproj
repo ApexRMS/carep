@@ -200,9 +200,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="carep.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\CoreForms\SyncroSim.Core.Forms.csproj">
       <Project>{ea3a4b6e-d4db-466d-b510-6a38918f2dd8}</Project>
       <Name>SyncroSim.Core.Forms</Name>
