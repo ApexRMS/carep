@@ -105,11 +105,11 @@
     </Compile>
     <Compile Include="Assembly.vb" />
     <Compile Include="Shared\Assignment.vb" />
-    <Compile Include="Transformer\CAREPTransformer.Input.vb" />
-    <Compile Include="Transformer\CAREPTransformer.ModelVariables.vb" />
-    <Compile Include="Transformer\CAREPTransformer.Normalize.vb" />
-    <Compile Include="Transformer\CAREPTransformer.Output.vb" />
-    <Compile Include="Transformer\CAREPTransformer.vb" />
+    <Compile Include="Runtime\CAREPTransformer.Input.vb" />
+    <Compile Include="Runtime\CAREPTransformer.ModelVariables.vb" />
+    <Compile Include="Runtime\CAREPTransformer.Normalize.vb" />
+    <Compile Include="Runtime\CAREPTransformer.Output.vb" />
+    <Compile Include="Runtime\CAREPTransformer.vb" />
     <Compile Include="CAREPUpdates.vb" />
     <Compile Include="Shared\Constants.vb" />
     <Compile Include="Shared\DayTimeUtils.vb" />
