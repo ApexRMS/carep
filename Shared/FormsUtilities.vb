@@ -1,4 +1,10 @@
-﻿Imports System.Globalization
+﻿'************************************************************************************
+' CAREP: A .NET library for simulating caribou energy protein models.
+'
+' Copyright © 2007-2017 Apex Resource Management Solution Ltd. (ApexRMS). All rights reserved.
+'
+'************************************************************************************
+Imports System.Globalization
 Imports System.Windows.Forms
 
 Module FormsUtilities
