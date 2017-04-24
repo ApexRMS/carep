@@ -1,9 +1,9 @@
-'************************************************************************************
-' CAREP: A .NET library for simulating caribou energy protein models.
+'*********************************************************************************************
+' Caribou Energy Protein: A SyncroSim Module for the Caribou Energy Protein Model.
 '
 ' Copyright © 2007-2017 Apex Resource Management Solution Ltd. (ApexRMS). All rights reserved.
 '
-'************************************************************************************
+'*********************************************************************************************
 
 ''' <summary>
 ''' ModelVariable1 of type Double with dimension of StageID
