@@ -70,7 +70,7 @@ Partial Class CAREPTransformer
         Debug.Assert(Me.m_StartYear > 0)
 
         If (DefaultsAdded) Then
-            Me.AddStatusRecord(StatusRecordType.Warning, "Some run control values were not specified.  Using defaults.")
+            Me.RecordStatus(StatusType.Warning, "Some run control values were not specified.  Using defaults.")
         End If
 
     End Sub

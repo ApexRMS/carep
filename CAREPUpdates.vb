@@ -19,7 +19,7 @@ Class CAREPUpdates
     ''' <param name="currentSchemaVersion"></param>
     ''' <remarks>
     ''' </remarks>
-    Public Overrides Sub Perform(store As DataStore, currentSchemaVersion As Integer)
+    Public Overrides Sub PerformUpdate(store As DataStore, currentSchemaVersion As Integer)
 
         If (currentSchemaVersion < 1) Then
             CAREP0000001(store)
