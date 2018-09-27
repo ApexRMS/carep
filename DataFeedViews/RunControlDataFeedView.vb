@@ -22,6 +22,7 @@ Class RunControlDataFeedView
         Me.SetComboBoxBinding(Me.ComboBoxOutputLevel, "OutputLevel")
 
         Me.RefreshBoundControls()
+        Me.AddStandardCommands()
 
     End Sub
 
