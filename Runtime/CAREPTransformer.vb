@@ -140,7 +140,9 @@ Class CAREPTransformer
 
         Dim otherValuesRun() As Integer = {iteration}
 
-        If (Me.m_OutputLevel <> OutputLevel.Low) Then
+        If (Me.m_OutputLevel = OutputLevel.Low) Then
+            WriteTimesteps(otOUT_TIMESTEP, Me.MinimumTimestep, Me.MaximumTimestep, otherValuesRun)
+        Else
 
             WriteTimesteps(otOUT_PLANT_TIMESTEP, Me.MinimumTimestep, Me.MaximumTimestep, otherValuesRun)
             WriteTimesteps(otOUT_STAGE_TIMESTEP, Me.MinimumTimestep, Me.MaximumTimestep, otherValuesRun)
@@ -169,18 +171,7 @@ Class CAREPTransformer
         CalculateAllocation(timestep)
         CalculateAllocationIndicators(timestep)
 
-        Dim otherValuesRun() As Integer = {iteration}
         Dim otherValuesRunTimestep() As Integer = {iteration, timestep}
-
-        If (Me.m_OutputLevel = OutputLevel.Low) Then
-
-            If ((timestep = Me.MinimumTimestep) Or (JulianDayFromTimestep(timestep) = Me.m_EndJDay)) Then
-                WriteTimesteps(otOUT_TIMESTEP, timestep, timestep, otherValuesRun)
-            End If
-
-            Return
-
-        End If
 
         If (Me.m_OutputLevel = OutputLevel.High) Then
 
