@@ -51,23 +51,13 @@ Partial Class CAREPTransformer
             DefaultsAdded = True
         End If
 
-        Me.m_StartYear = dr(DATASHEET_RUN_CONTROL_START_YEAR_COLUMN_NAME)
-        Me.m_StartJDay = dr(DATASHEET_RUN_CONTROL_START_JULIAN_DAY_COLUMN_NAME)
-        Me.m_EndYear = dr(DATASHEET_RUN_CONTROL_END_YEAR_COLUMN_NAME)
-        Me.m_EndJDay = dr(DATASHEET_RUN_CONTROL_END_JULIAN_DAY_COLUMN_NAME)
-        Me.m_OutputLevel = CType(dr(DATASHEET_RUN_CONTROL_OUTPUT_LEVEL_COLUMN_NAME), OutputLevel)
+        Dim EndYear As Integer = dr(DATASHEET_RUN_CONTROL_END_YEAR_COLUMN_NAME)
+        Dim EndJDay As Integer = dr(DATASHEET_RUN_CONTROL_END_JULIAN_DAY_COLUMN_NAME)
 
         dr("MinimumIteration") = 1
         dr("MaximumIteration") = dr(DATASHEET_RUN_CONTROL_NUM_ITERATIONS_COLUMN_NAME)
-        dr("MinimumTimestep") = Me.m_StartYear
-        dr("MaximumTimestep") = TimestepFromJulianDayYear(m_EndYear, m_EndJDay)
-
-        Me.MinimumIteration = 1
-        Me.MaximumIteration = CInt(dr(DATASHEET_RUN_CONTROL_NUM_ITERATIONS_COLUMN_NAME))
-        Me.MinimumTimestep = Me.m_StartYear
-        Me.MaximumTimestep = TimestepFromJulianDayYear(m_EndYear, m_EndJDay)
-
-        Debug.Assert(Me.m_StartYear > 0)
+        dr("MinimumTimestep") = dr(DATASHEET_RUN_CONTROL_START_YEAR_COLUMN_NAME)
+        dr("MaximumTimestep") = TimestepFromJulianDayYear(EndYear, EndJDay)
 
         If (DefaultsAdded) Then
             Me.RecordStatus(StatusType.Warning, "Some run control values were not specified.  Using defaults.")

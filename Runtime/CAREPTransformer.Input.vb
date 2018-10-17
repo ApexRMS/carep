@@ -41,6 +41,29 @@ Partial Class CAREPTransformer
     Private precision As Integer = 3 'max # of decimals for requirements
 
     ''' <summary>
+    ''' Initializes the model
+    ''' </summary>
+    Private Sub InitializeModel()
+
+        Dim ds As DataSheet = Me.ResultScenario.GetDataSheet(DATAFEED_RUN_CONTROL_NAME)
+        Dim dr As DataRow = ds.GetDataRow()
+
+        Me.m_StartYear = dr(DATASHEET_RUN_CONTROL_START_YEAR_COLUMN_NAME)
+        Me.m_StartJDay = dr(DATASHEET_RUN_CONTROL_START_JULIAN_DAY_COLUMN_NAME)
+        Me.m_EndYear = dr(DATASHEET_RUN_CONTROL_END_YEAR_COLUMN_NAME)
+        Me.m_EndJDay = dr(DATASHEET_RUN_CONTROL_END_JULIAN_DAY_COLUMN_NAME)
+        Me.m_OutputLevel = CType(dr(DATASHEET_RUN_CONTROL_OUTPUT_LEVEL_COLUMN_NAME), OutputLevel)
+
+        Me.MinimumIteration = CInt(dr("MinimumIteration"))
+        Me.MaximumIteration = CInt(dr("MaximumIteration"))
+        Me.MinimumTimestep = CInt(dr("MinimumTimestep"))
+        Me.MaximumTimestep = CInt(dr("MaximumTimestep"))
+
+        Debug.Assert(Me.m_StartYear > 0)
+
+    End Sub
+
+    ''' <summary>
     ''' Initializes the definitions and run control parameters for the simulation model
     ''' </summary>
     ''' <remarks></remarks>

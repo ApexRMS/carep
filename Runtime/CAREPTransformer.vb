@@ -30,13 +30,22 @@ Class CAREPTransformer
     Public Overrides Sub Configure()
 
         MyBase.Configure()
-
         Me.NormalizeRunControl()
+
+    End Sub
+
+    ''' <summary>
+    ''' Overrides Initialize
+    ''' </summary>
+    Public Overrides Sub Initialize()
+
+        MyBase.Initialize()
+
+        Me.InitializeModel()
         Me.InitializeInputTables()
         Me.InitializeDefinitions()
         Me.InitializeModelVariables()
         Me.InitializeOutputTables()
-
         Me.TimestepUnits = "Julian Day"
 
     End Sub
