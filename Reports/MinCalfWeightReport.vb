@@ -35,7 +35,7 @@ Class MinCalfWeightReport
 
         c.Add(New ExportColumn("ScenarioID", "Scenario ID"))
         c.Add(New ExportColumn("Iteration"))
-        c.Add(New ExportColumn("Timestep", "Year"))
+        c.Add(New ExportColumn("Timestep", "Julian Day"))
         c.Add(New ExportColumn("WTBODY"))
         c.Add(New ExportColumn("WTCALF"))
         c.Add(New ExportColumn("WTPRO"))
