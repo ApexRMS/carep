@@ -34,6 +34,7 @@ Class MinCalfWeightReport
         Dim c As New ExportColumnCollection()
 
         c.Add(New ExportColumn("ScenarioID", "Scenario ID"))
+        c.Add(New ExportColumn("ScenarioName", "Scenario Name"))
         c.Add(New ExportColumn("Iteration"))
         c.Add(New ExportColumn("Timestep", "Julian Day"))
         c.Add(New ExportColumn("WTBODY"))
@@ -62,7 +63,8 @@ Class MinCalfWeightReport
     Private Function CreateReportQuery() As String
 
         Dim Query As String = String.Format(
-            "SELECT ScenarioID, " &
+            "SELECT CAREP_OutTimestep.ScenarioID, " &
+            "SSim_Scenario.Name as ScenarioName, " &
             "Iteration, " &
             "Timestep, " &
             "WTBODY, " &
@@ -71,7 +73,9 @@ Class MinCalfWeightReport
             "WTFAT, " &
             "AGE, " &
             "CASE CAST(CALFFATE AS INTEGER) WHEN 1 THEN 'No Calf' WHEN 2 THEN 'Lactating' WHEN 3 THEN 'Post Natal Weaner' WHEN 4 THEN 'Summer Weaner' WHEN 5 THEN 'Early Weaner' WHEN 6 THEN 'Normal Weaner' WHEN 7 THEN 'Extended Lactator' WHEN 8 THEN 'In Utero' END AS CALFFATETEXT " &
-            "FROM CAREP_OutTimestep WHERE ScenarioID IN ({0})",
+            "FROM CAREP_OutTimestep " &
+            "INNER JOIN SSim_Scenario ON SSim_Scenario.ScenarioID=CAREP_OutTimestep.ScenarioID " &
+            "WHERE CAREP_OutTimestep.ScenarioID IN ({0})",
             Me.CreateActiveResultScenarioFilter())
 
         Return Query
