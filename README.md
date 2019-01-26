@@ -1,2 +1,2 @@
 # carep
-A SyncroSim Package for the Caribou Energy Protein Model.
+SyncroSim Base Package for simulating the energy and protein dynamics of caribou.
