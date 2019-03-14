@@ -1758,7 +1758,7 @@ Class CAREPTransformer
 
         'Determine whehter the animal is already pregnant
         Dim bPregnant As Boolean = False
-        If d = 1 Then
+        If d = Me.MinimumTimestep Then
             If PREGIN <> 0 Then
                 bPregnant = True
                 CALFFATEOUT(d) = CalfFate.InUtero
@@ -1782,7 +1782,7 @@ Class CAREPTransformer
 
         'Determine whether the animal is already or about to lactate
         Dim bLact As Boolean = False
-        If d = 1 Then
+        If d = Me.MinimumTimestep Then
             If LACTIN <> 0 Then
                 bLact = True
                 CALFFATEOUT(d) = CalfFate.Lactating

@@ -51,12 +51,13 @@ Partial Class CAREPTransformer
             DefaultsAdded = True
         End If
 
+        Dim StartJDay As Integer = dr(DATASHEET_RUN_CONTROL_START_JULIAN_DAY_COLUMN_NAME)
         Dim EndYear As Integer = dr(DATASHEET_RUN_CONTROL_END_YEAR_COLUMN_NAME)
         Dim EndJDay As Integer = dr(DATASHEET_RUN_CONTROL_END_JULIAN_DAY_COLUMN_NAME)
 
         dr("MinimumIteration") = 1
         dr("MaximumIteration") = dr(DATASHEET_RUN_CONTROL_NUM_ITERATIONS_COLUMN_NAME)
-        dr("MinimumTimestep") = dr(DATASHEET_RUN_CONTROL_START_YEAR_COLUMN_NAME)
+        dr("MinimumTimestep") = StartJDay
         dr("MaximumTimestep") = TimestepFromJulianDayYear(EndYear, EndJDay)
 
         If (DefaultsAdded) Then

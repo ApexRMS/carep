@@ -15,14 +15,14 @@ Class MinCalfWeightReport
 
     Protected Overrides Sub Export(location As String, exportType As ExportType)
 
-        Dim query As String = Me.CreateReportQuery()
         Dim columns As ExportColumnCollection = Me.CreateColumnCollection()
+        Dim data As DataTable = Me.GetReportData()
 
         If (exportType = ExportType.ExcelFile) Then
-            Me.ExcelExport(location, columns, query, "Minimal - Calf Weight")
+            ExportTransformer.ExcelExport(location, columns, data, "Minimal - Calf Weight")
         Else
 
-            Me.CSVExport(location, columns, query)
+            Me.CSVExport(location, columns, data)
             FormsUtilities.InformationMessageBox("Data saved to '{0}'.", location)
 
         End If
@@ -34,9 +34,10 @@ Class MinCalfWeightReport
         Dim c As New ExportColumnCollection()
 
         c.Add(New ExportColumn("ScenarioID", "Scenario ID"))
-        c.Add(New ExportColumn("ScenarioName", "Scenario Name"))
         c.Add(New ExportColumn("Iteration"))
-        c.Add(New ExportColumn("Timestep", "Julian Day"))
+        c.Add(New ExportColumn("Timestep"))
+        c.Add(New ExportColumn("Year"))
+        c.Add(New ExportColumn("JDay", "Julian Day"))
         c.Add(New ExportColumn("WTBODY"))
         c.Add(New ExportColumn("WTCALF"))
         c.Add(New ExportColumn("WTPRO"))
@@ -60,25 +61,38 @@ Class MinCalfWeightReport
 
     End Function
 
-    Private Function CreateReportQuery() As String
+    Private Function GetReportData() As DataTable
 
         Dim Query As String = String.Format(
-            "SELECT CAREP_OutTimestep.ScenarioID, " &
-            "SSim_Scenario.Name as ScenarioName, " &
+            "SELECT ScenarioID, " &
             "Iteration, " &
             "Timestep, " &
+            "NULL AS Year, " &
+            "NULL AS JDay, " &
             "WTBODY, " &
             "WTCALF, " &
             "WTPRO, " &
             "WTFAT, " &
             "AGE, " &
             "CASE CAST(CALFFATE AS INTEGER) WHEN 1 THEN 'No Calf' WHEN 2 THEN 'Lactating' WHEN 3 THEN 'Post Natal Weaner' WHEN 4 THEN 'Summer Weaner' WHEN 5 THEN 'Early Weaner' WHEN 6 THEN 'Normal Weaner' WHEN 7 THEN 'Extended Lactator' WHEN 8 THEN 'In Utero' END AS CALFFATETEXT " &
-            "FROM CAREP_OutTimestep " &
-            "INNER JOIN SSim_Scenario ON SSim_Scenario.ScenarioID=CAREP_OutTimestep.ScenarioID " &
-            "WHERE CAREP_OutTimestep.ScenarioID IN ({0})",
+            "FROM CAREP_OutTimestep WHERE ScenarioID IN ({0})",
             Me.CreateActiveResultScenarioFilter())
 
-        Return Query
+        Using store As DataStore = Me.Library.CreateDataStore()
+
+            Dim dt As DataTable = store.CreateDataTableFromQuery(Query, "ReportData")
+
+            For Each dr As DataRow In dt.Rows
+
+                Dim Timestep As Integer = CInt(dr("Timestep"))
+                dr("Year") = DayTimeUtils.YearFromTimestep(Timestep, 1, 0) 'Start Julian Day is not used in this function
+                dr("JDay") = DayTimeUtils.JulianDayFromTimestep(Timestep)
+
+            Next
+
+            Return dt
+
+        End Using
 
     End Function
 
