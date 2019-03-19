@@ -21,10 +21,8 @@ Class MinCalfWeightReport
         If (exportType = ExportType.ExcelFile) Then
             ExportTransformer.ExcelExport(location, columns, data, "Minimal - Calf Weight")
         Else
-
-            Me.CSVExport(location, columns, data)
+            ExportTransformer.CSVExport(location, columns, data)
             FormsUtilities.InformationMessageBox("Data saved to '{0}'.", location)
-
         End If
 
     End Sub
